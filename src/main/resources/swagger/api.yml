@@ -17,7 +17,7 @@ components:
       content:
         'application/problem+json':
           schema:
-            $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'
+            $ref: '#/components/schemas/Problem'
 
   securitySchemes:
     jwt:
