@@ -20,6 +20,9 @@
             <column name="winning_money" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="wagering_money" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="transaction_id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -55,6 +58,7 @@
             <column name="event_date" type="${datetimeType}"/>
             <column name="operation" type="string"/>
             <column name="winning_money" type="numeric"/>
+            <column name="wagering_money" type="numeric"/>
             <column name="transaction_id" type="string"/>
             <column name="player_id" type="numeric"/>
             <column name="promotion" type="string"/>

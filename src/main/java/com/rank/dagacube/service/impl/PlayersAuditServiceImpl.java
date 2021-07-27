@@ -48,6 +48,9 @@ public class PlayersAuditServiceImpl implements PlayersAuditService {
                     if (playersAudit.getWinningMoney() != null) {
                         existingPlayersAudit.setWinningMoney(playersAudit.getWinningMoney());
                     }
+                    if (playersAudit.getWageringMoney() != null) {
+                        existingPlayersAudit.setWageringMoney(playersAudit.getWageringMoney());
+                    }
                     if (playersAudit.getPlayerId() != null) {
                         existingPlayersAudit.setPlayerId(playersAudit.getPlayerId());
                     }

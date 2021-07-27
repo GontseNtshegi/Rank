@@ -28,6 +28,7 @@ describe('Service Tests', () => {
         eventDate: currentDate,
         operation: 'AAAAAAA',
         winningMoney: 0,
+        wageringMoney: 0,
         transactionId: 'AAAAAAA',
         playerId: 0,
         promotion: 'AAAAAAA',
@@ -79,6 +80,7 @@ describe('Service Tests', () => {
             eventDate: currentDate.format(DATE_TIME_FORMAT),
             operation: 'BBBBBB',
             winningMoney: 1,
+            wageringMoney: 1,
             transactionId: 'BBBBBB',
             playerId: 1,
             promotion: 'BBBBBB',
@@ -132,6 +134,7 @@ describe('Service Tests', () => {
             eventDate: currentDate.format(DATE_TIME_FORMAT),
             operation: 'BBBBBB',
             winningMoney: 1,
+            wageringMoney: 1,
             transactionId: 'BBBBBB',
             playerId: 1,
             promotion: 'BBBBBB',
@@ -194,7 +197,7 @@ describe('Service Tests', () => {
           const playersAuditArray: IPlayersAudit[] = [
             { transactionId: 'ABC' },
             { transactionId: 'CBA' },
-            { transactionId: 'invoice Utah' },
+            { transactionId: 'cross-platform SMTP' },
           ];
           const playersAuditCollection: IPlayersAudit[] = [{ transactionId: 'ABC' }];
           expectedResult = service.addPlayersAuditToCollectionIfMissing(playersAuditCollection, ...playersAuditArray);

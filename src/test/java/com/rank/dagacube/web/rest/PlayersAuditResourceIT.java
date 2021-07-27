@@ -42,6 +42,9 @@ class PlayersAuditResourceIT {
     private static final Long DEFAULT_WINNING_MONEY = 1L;
     private static final Long UPDATED_WINNING_MONEY = 2L;
 
+    private static final Long DEFAULT_WAGERING_MONEY = 1L;
+    private static final Long UPDATED_WAGERING_MONEY = 2L;
+
     private static final Long DEFAULT_PLAYER_ID = 1L;
     private static final Long UPDATED_PLAYER_ID = 2L;
 
@@ -73,6 +76,7 @@ class PlayersAuditResourceIT {
             .eventDate(DEFAULT_EVENT_DATE)
             .operation(DEFAULT_OPERATION)
             .winningMoney(DEFAULT_WINNING_MONEY)
+            .wageringMoney(DEFAULT_WAGERING_MONEY)
             .playerId(DEFAULT_PLAYER_ID)
             .promotion(DEFAULT_PROMOTION);
         return playersAudit;
@@ -89,6 +93,7 @@ class PlayersAuditResourceIT {
             .eventDate(UPDATED_EVENT_DATE)
             .operation(UPDATED_OPERATION)
             .winningMoney(UPDATED_WINNING_MONEY)
+            .wageringMoney(UPDATED_WAGERING_MONEY)
             .playerId(UPDATED_PLAYER_ID)
             .promotion(UPDATED_PROMOTION);
         return playersAudit;
@@ -115,6 +120,7 @@ class PlayersAuditResourceIT {
         assertThat(testPlayersAudit.getEventDate()).isEqualTo(DEFAULT_EVENT_DATE);
         assertThat(testPlayersAudit.getOperation()).isEqualTo(DEFAULT_OPERATION);
         assertThat(testPlayersAudit.getWinningMoney()).isEqualTo(DEFAULT_WINNING_MONEY);
+        assertThat(testPlayersAudit.getWageringMoney()).isEqualTo(DEFAULT_WAGERING_MONEY);
         assertThat(testPlayersAudit.getPlayerId()).isEqualTo(DEFAULT_PLAYER_ID);
         assertThat(testPlayersAudit.getPromotion()).isEqualTo(DEFAULT_PROMOTION);
     }
@@ -152,6 +158,7 @@ class PlayersAuditResourceIT {
             .andExpect(jsonPath("$.[*].eventDate").value(hasItem(sameInstant(DEFAULT_EVENT_DATE))))
             .andExpect(jsonPath("$.[*].operation").value(hasItem(DEFAULT_OPERATION)))
             .andExpect(jsonPath("$.[*].winningMoney").value(hasItem(DEFAULT_WINNING_MONEY.intValue())))
+            .andExpect(jsonPath("$.[*].wageringMoney").value(hasItem(DEFAULT_WAGERING_MONEY.intValue())))
             .andExpect(jsonPath("$.[*].playerId").value(hasItem(DEFAULT_PLAYER_ID.intValue())))
             .andExpect(jsonPath("$.[*].promotion").value(hasItem(DEFAULT_PROMOTION)));
     }
@@ -171,6 +178,7 @@ class PlayersAuditResourceIT {
             .andExpect(jsonPath("$.eventDate").value(sameInstant(DEFAULT_EVENT_DATE)))
             .andExpect(jsonPath("$.operation").value(DEFAULT_OPERATION))
             .andExpect(jsonPath("$.winningMoney").value(DEFAULT_WINNING_MONEY.intValue()))
+            .andExpect(jsonPath("$.wageringMoney").value(DEFAULT_WAGERING_MONEY.intValue()))
             .andExpect(jsonPath("$.playerId").value(DEFAULT_PLAYER_ID.intValue()))
             .andExpect(jsonPath("$.promotion").value(DEFAULT_PROMOTION));
     }
@@ -198,6 +206,7 @@ class PlayersAuditResourceIT {
             .eventDate(UPDATED_EVENT_DATE)
             .operation(UPDATED_OPERATION)
             .winningMoney(UPDATED_WINNING_MONEY)
+            .wageringMoney(UPDATED_WAGERING_MONEY)
             .playerId(UPDATED_PLAYER_ID)
             .promotion(UPDATED_PROMOTION);
 
@@ -216,6 +225,7 @@ class PlayersAuditResourceIT {
         assertThat(testPlayersAudit.getEventDate()).isEqualTo(UPDATED_EVENT_DATE);
         assertThat(testPlayersAudit.getOperation()).isEqualTo(UPDATED_OPERATION);
         assertThat(testPlayersAudit.getWinningMoney()).isEqualTo(UPDATED_WINNING_MONEY);
+        assertThat(testPlayersAudit.getWageringMoney()).isEqualTo(UPDATED_WAGERING_MONEY);
         assertThat(testPlayersAudit.getPlayerId()).isEqualTo(UPDATED_PLAYER_ID);
         assertThat(testPlayersAudit.getPromotion()).isEqualTo(UPDATED_PROMOTION);
     }
@@ -305,6 +315,7 @@ class PlayersAuditResourceIT {
         assertThat(testPlayersAudit.getEventDate()).isEqualTo(UPDATED_EVENT_DATE);
         assertThat(testPlayersAudit.getOperation()).isEqualTo(UPDATED_OPERATION);
         assertThat(testPlayersAudit.getWinningMoney()).isEqualTo(UPDATED_WINNING_MONEY);
+        assertThat(testPlayersAudit.getWageringMoney()).isEqualTo(DEFAULT_WAGERING_MONEY);
         assertThat(testPlayersAudit.getPlayerId()).isEqualTo(DEFAULT_PLAYER_ID);
         assertThat(testPlayersAudit.getPromotion()).isEqualTo(DEFAULT_PROMOTION);
     }
@@ -325,6 +336,7 @@ class PlayersAuditResourceIT {
             .eventDate(UPDATED_EVENT_DATE)
             .operation(UPDATED_OPERATION)
             .winningMoney(UPDATED_WINNING_MONEY)
+            .wageringMoney(UPDATED_WAGERING_MONEY)
             .playerId(UPDATED_PLAYER_ID)
             .promotion(UPDATED_PROMOTION);
 
@@ -343,6 +355,7 @@ class PlayersAuditResourceIT {
         assertThat(testPlayersAudit.getEventDate()).isEqualTo(UPDATED_EVENT_DATE);
         assertThat(testPlayersAudit.getOperation()).isEqualTo(UPDATED_OPERATION);
         assertThat(testPlayersAudit.getWinningMoney()).isEqualTo(UPDATED_WINNING_MONEY);
+        assertThat(testPlayersAudit.getWageringMoney()).isEqualTo(UPDATED_WAGERING_MONEY);
         assertThat(testPlayersAudit.getPlayerId()).isEqualTo(UPDATED_PLAYER_ID);
         assertThat(testPlayersAudit.getPromotion()).isEqualTo(UPDATED_PROMOTION);
     }

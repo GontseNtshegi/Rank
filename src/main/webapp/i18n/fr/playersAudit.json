@@ -20,6 +20,7 @@
       "eventDate": "Event Date",
       "operation": "Operation",
       "winningMoney": "Winning Money",
+      "wageringMoney": "Wagering Money",
       "transactionId": "Transaction Id",
       "playerId": "Player Id",
       "promotion": "Promotion",

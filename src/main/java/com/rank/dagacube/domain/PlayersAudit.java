@@ -1,12 +1,11 @@
 package com.rank.dagacube.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 /**
  * A PlayersAudit.
@@ -32,6 +31,9 @@ public class PlayersAudit implements Serializable {
 
     @Column(name = "winning_money")
     private Long winningMoney;
+
+    @Column(name = "wagering_money")
+    private Long wageringMoney;
 
     @Column(name = "player_id")
     private Long playerId;
@@ -94,6 +96,19 @@ public class PlayersAudit implements Serializable {
 
     public void setWinningMoney(Long winningMoney) {
         this.winningMoney = winningMoney;
+    }
+
+    public Long getWageringMoney() {
+        return this.wageringMoney;
+    }
+
+    public PlayersAudit wageringMoney(Long wageringMoney) {
+        this.wageringMoney = wageringMoney;
+        return this;
+    }
+
+    public void setWageringMoney(Long wageringMoney) {
+        this.wageringMoney = wageringMoney;
     }
 
     public Long getPlayerId() {
@@ -162,6 +177,7 @@ public class PlayersAudit implements Serializable {
             ", eventDate='" + getEventDate() + "'" +
             ", operation='" + getOperation() + "'" +
             ", winningMoney=" + getWinningMoney() +
+            ", wageringMoney=" + getWageringMoney() +
             ", playerId=" + getPlayerId() +
             ", promotion='" + getPromotion() + "'" +
             "}";

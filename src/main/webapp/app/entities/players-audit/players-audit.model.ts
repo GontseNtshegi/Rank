@@ -5,6 +5,7 @@ export interface IPlayersAudit {
   eventDate?: dayjs.Dayjs | null;
   operation?: string | null;
   winningMoney?: number | null;
+  wageringMoney?: number | null;
   transactionId?: string;
   playerId?: number | null;
   promotion?: string | null;
@@ -16,6 +17,7 @@ export class PlayersAudit implements IPlayersAudit {
     public eventDate?: dayjs.Dayjs | null,
     public operation?: string | null,
     public winningMoney?: number | null,
+    public wageringMoney?: number | null,
     public transactionId?: string,
     public playerId?: number | null,
     public promotion?: string | null,
