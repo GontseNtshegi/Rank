@@ -10,6 +10,9 @@ public final class Constants {
 
     public static final String SYSTEM = "system";
     public static final String DEFAULT_LANGUAGE = "en";
+    public static final String DEPOSIT = "Deposit";
+    public static final String WAGE = "Wage";
+    public static final String VIEW_BALANCE = "View Balance";
 
     private Constants() {}
 }
