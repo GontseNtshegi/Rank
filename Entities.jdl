@@ -17,6 +17,7 @@ entity PlayersAudit {
 	EventDate ZonedDateTime,
 	Operation String,
 	WinningMoney Long,
+	WageringMoney Long,
     @Id TransactionId String required unique
     PlayerId Long,
     Promotion String
