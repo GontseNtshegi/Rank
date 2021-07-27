@@ -1,0 +1,308 @@
+openapi: 3.0.1
+info:
+  title: DAGACUBE API
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/api'
+    description: Development server
+  - url: 'http://localhost:8080/api'
+    description: Development server with TLS Profile
+paths:
+  '/wage/money':
+    post:
+      tags:
+        - Deduct
+      summary: Wagering money
+      operationId: deductMoney
+      description: Wage money to bet.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WageRequest'
+      responses:
+        '200':
+          description: Sucessful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WageResponse'
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+  '/currentBalance/{id}':
+    get:
+      tags:
+        - Balance
+      summary: Return a current balance for palyer
+      operationId: getCurrentBalance
+      description: Return current balance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: >-
+            The Player's Id
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceGetResponse'
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+  '/deposit/money':
+    post:
+      tags:
+        - Deposit
+      summary: Deposit Money.
+      operationId: depositMoney
+      description: Deposit winning money
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositRequest'
+      responses:
+        '200':
+          description: Sucessful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositResponse'
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+  '/last10Wager/{id}':
+    get:
+      tags:
+        - Customer Support
+      summary: Return last 10 wagers for a specific player
+      operationId: getLast10wager
+      description: Returns a list of wagers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: >-
+            The Player's Id
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Last10GetResponse'
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+  '/last10Win/{id}':
+    get:
+      tags:
+        - Customer Support
+      summary: Return last 10 wagers for a specific player
+      operationId: getLast10win
+      description: Returns a list of wagers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: >-
+            The Player's Id
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Last10GetResponse'
+        '204':
+          description: No content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    WageRequest:
+      type: object
+      properties:
+        playerId:
+          description: The id of the player.
+          type: integer
+          format: int64
+        transactionId:
+          description: >-
+            A unique Transaction Id.
+          type: string
+        wage:
+          description: >-
+            The amount of money to deduct.
+          type: number
+          format: currency
+      required:
+        - playerId
+        - transactionId
+        - wage
+    WageResponse:
+      type: object
+      properties:
+        playerId:
+          description: The id of the player.
+          type: integer
+          format: int64
+        transactionId:
+          description: >-
+            A unique Transaction Id.
+          type: string
+    BalanceGetResponse:
+      type: object
+      properties:
+        currentBalance:
+          description: CurrentBalance of the player
+          type: number
+          format: currency
+        transactionId:
+          description: >-
+            A unique transaction reference.
+          type: string
+    DepositRequest:
+      type: object
+      properties:
+        playerId:
+          description: The id of the player.
+          type: integer
+          format: int64
+        transactionId:
+          description: >-
+            A unique Transaction Id.
+          type: string
+        win:
+          description: >-
+            The amount of money to deposit.
+          type: number
+          format: currency
+      required:
+        - playerId
+        - transactionId
+        - win
+    DepositResponse:
+      type: object
+      properties:
+        playerId:
+          description: The id of the player.
+          type: integer
+          format: int64
+        transactionId:
+          description: >-
+            A unique Transaction Id.
+          type: string
+    Last10GetResponse:
+      type: array
+      items:
+        type: number
+        format: currency
+      maxItems: 10
+    Problem:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: >
+            An absolute URI that identifies the problem type.  When
+            dereferenced,
+
+            it SHOULD provide human-readable documentation for the problem type
+
+            (e.g., using HTML).
+          default: 'about:blank'
+          example: 'https://zalando.github.io/problem/constraint-violation'
+        title:
+          type: string
+          description: >
+            A short, summary of the problem type. Written in english and
+            readable
+
+            for engineers (usually not suited for non technical stakeholders and
+
+            not localized);
+          example: Service Unavailable
+        status:
+          type: integer
+          format: int32
+          description: >
+            The HTTP status code generated by the origin server for this
+            occurrence
+
+            of the problem.
+          minimum: 100
+          maximum: 600
+          exclusiveMaximum: true
+          example: 503
+        detail:
+          type: string
+          description: |
+            A human readable explanation specific to this occurrence of the
+            problem.
+          example: Connection to database timed out
+        instance:
+          type: string
+          format: uri
+          description: >
+            An absolute URI that identifies the specific occurrence of the
+            problem.
+
+            It may or may not yield further information if dereferenced.
+  responses:
+    Problem:
+      description: >-
+        error occurred - see status code and problem object for more
+        information.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
