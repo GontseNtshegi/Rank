@@ -793,7 +793,7 @@
                                 <goal>generate</goal>
                             </goals>
                             <configuration>
-                                <inputSpec>${project.basedir}/src/main/resources/swagger/api.yml</inputSpec>
+                                <inputSpec>${project.basedir}/src/main/resources/swagger/openapi.yml</inputSpec>
                                 <generatorName>spring</generatorName>
                                 <apiPackage>com.rank.dagacube.web.api</apiPackage>
                                 <modelPackage>com.rank.dagacube.web.api.model</modelPackage>

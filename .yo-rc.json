@@ -41,6 +41,8 @@
     "packageFolder": "com/rank/dagacube",
     "jwtSecretKey": "NTQwZmE3NmE1OWI0N2Y4ZGZkYjYyMmIwNTA4ZjExMmE4YTU2Yjk0YjUxZDQxMzhhZDI1NDNlZGViZGFlZjBmMzBiNTgyN2ExZWQyY2U5ZWI2M2VlYTZhMWE3ZDRjOWQ1YzNjMThkMTI5YjIyNTViY2Q5OTdjZDA5NmRmNzNmOTU=",
     "clientPackageManager": "npm",
-    "languages": ["en", "nl", "fr", "de", "pt-pt", "es"]
+    "languages": ["en", "nl", "fr", "de", "pt-pt", "es"],
+    "entities": ["Players", "PlayersAudit"],
+    "lastLiquibaseTimestamp": 1627296165000
   }
 }

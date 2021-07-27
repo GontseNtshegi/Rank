@@ -1,0 +1,30 @@
+
+entity Players {
+	/**
+	* The firstname attribute.
+	*/
+	CurrentBalance Long,
+	WageringMoney Long,
+	WinningMoney Long,
+    Username String,
+    Email String,
+    Contact String
+}
+entity PlayersAudit {
+	/**
+	* The firstname attribute.
+	*/
+	EventDate ZonedDateTime,
+	Operation String,
+	WinningMoney Long,
+    @Id TransactionId String required unique
+    PlayerId Long,
+    Promotion String
+}
+
+relationship OneToMany {
+  Players{playerId} to PlayersAudit
+}
+
+// Set service options to all except few
+service all with serviceImpl

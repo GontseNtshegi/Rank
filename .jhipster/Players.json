@@ -1,0 +1,48 @@
+{
+  "name": "Players",
+  "fields": [
+    {
+      "fieldName": "currentBalance",
+      "fieldType": "Long",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "wageringMoney",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "winningMoney",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "playersAudit",
+      "otherEntityRelationshipName": "players",
+      "relationshipName": "playerId"
+    }
+  ],
+  "entityTableName": "players",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210726104244"
+}

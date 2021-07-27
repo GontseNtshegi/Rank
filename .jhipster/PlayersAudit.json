@@ -1,0 +1,52 @@
+{
+  "name": "PlayersAudit",
+  "fields": [
+    {
+      "fieldName": "eventDate",
+      "fieldType": "ZonedDateTime",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "operation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "winningMoney",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "transactionId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"],
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "playerId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "promotion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "players",
+      "otherEntityRelationshipName": "playerId",
+      "relationshipName": "players"
+    }
+  ],
+  "entityTableName": "players_audit",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210726104245"
+}
