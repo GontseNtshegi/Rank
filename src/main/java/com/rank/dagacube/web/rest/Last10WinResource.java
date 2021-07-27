@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.zalando.problem.Status;
 
 @Service
@@ -23,6 +24,7 @@ public class Last10WinResource implements Last10WinApiDelegate {
         this.playersAuditService = playersAuditService;
     }
 
+    @Transactional
     @Override
     public ResponseEntity<List<BigDecimal>> getLast10win(Long id) {
         List<BigDecimal> response = new ArrayList<>();

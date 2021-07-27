@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CurrentBalanceResource implements CurrentBalanceApiDelegate {
@@ -28,6 +29,7 @@ public class CurrentBalanceResource implements CurrentBalanceApiDelegate {
         this.playersAuditService = playersAuditService;
     }
 
+    @Transactional
     @Override
     public ResponseEntity<BalanceGetResponse> getCurrentBalance(Long id) {
         BalanceGetResponse balanceGetResponse = new BalanceGetResponse();
