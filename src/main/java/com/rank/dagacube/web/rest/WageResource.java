@@ -13,8 +13,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.zalando.problem.Status;
 
+@Service
 public class WageResource implements WageApiDelegate {
 
     @Autowired
@@ -52,7 +54,7 @@ public class WageResource implements WageApiDelegate {
                                 .playerId(wageRequest.getPlayerId())
                                 .promotion(null)
                                 .transactionId(wageRequest.getTransactionId())
-                                .wagingMoney(wageRequest.getWage().longValue());
+                                .wageringMoney(wageRequest.getWage().longValue());
 
                             playersAuditService.save(playersAudit);
 

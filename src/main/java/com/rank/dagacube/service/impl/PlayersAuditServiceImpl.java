@@ -83,4 +83,14 @@ public class PlayersAuditServiceImpl implements PlayersAuditService {
         log.debug("Request to delete PlayersAudit : {}", id);
         playersAuditRepository.deleteById(id);
     }
+
+    @Override
+    public List<PlayersAudit> findTop10ByPlayerIdAndWinningMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long winningMoney) {
+        return playersAuditRepository.findTop10ByPlayerIdAndWinningMoneyGreaterThanOrderByEventDateDesc(playerId, winningMoney);
+    }
+
+    @Override
+    public List<PlayersAudit> findTop10ByPlayerIdAndWageringMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long wageringMoney) {
+        return playersAuditRepository.findTop10ByPlayerIdAndWageringMoneyGreaterThanOrderByEventDateDesc(playerId, wageringMoney);
+    }
 }

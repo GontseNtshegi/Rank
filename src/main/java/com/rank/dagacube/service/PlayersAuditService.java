@@ -45,4 +45,20 @@ public interface PlayersAuditService {
      * @param id the id of the entity.
      */
     void delete(String id);
+
+    /**
+     *
+     * @param playerId
+     * @param winningMoney
+     * @return
+     */
+    List<PlayersAudit> findTop10ByPlayerIdAndWinningMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long winningMoney);
+
+    /**
+     *
+     * @param playerId
+     * @param wageringMoney
+     * @return
+     */
+    List<PlayersAudit> findTop10ByPlayerIdAndWageringMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long wageringMoney);
 }
