@@ -1,0 +1,32 @@
+{
+  "rankInteractiveApp": {
+    "playersAudit": {
+      "home": {
+        "title": "PlayersAudits",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Players Audit",
+        "createOrEditLabel": "Créer ou éditer un Players Audit",
+        "notFound": "Aucun Players Audit trouvé"
+      },
+      "created": "Un nouveau Players Audit a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Players Audit avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Players Audit avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Players Audit {{ id }} ?"
+      },
+      "detail": {
+        "title": "Players Audit"
+      },
+      "eventDate": "Event Date",
+      "operation": "Operation",
+      "winningMoney": "Winning Money",
+      "transactionId": "Transaction Id",
+      "playerId": "Player Id",
+      "promotion": "Promotion",
+      "players": "Players",
+      "help": {
+        "eventDate": "The firstname attribute."
+      }
+    }
+  }
+}

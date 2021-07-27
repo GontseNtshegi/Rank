@@ -1,0 +1,33 @@
+{
+  "rankInteractiveApp": {
+    "players": {
+      "home": {
+        "title": "Players",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Players",
+        "createOrEditLabel": "Créer ou éditer un Players",
+        "notFound": "Aucun Players trouvé"
+      },
+      "created": "Un nouveau Players a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Players avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Players avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Players {{ id }} ?"
+      },
+      "detail": {
+        "title": "Players"
+      },
+      "id": "ID",
+      "currentBalance": "Current Balance",
+      "wageringMoney": "Wagering Money",
+      "winningMoney": "Winning Money",
+      "username": "Username",
+      "email": "Email",
+      "contact": "Contact",
+      "playerId": "Player Id",
+      "help": {
+        "currentBalance": "The firstname attribute."
+      }
+    }
+  }
+}

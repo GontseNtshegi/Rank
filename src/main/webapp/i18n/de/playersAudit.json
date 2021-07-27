@@ -1,0 +1,32 @@
+{
+  "rankInteractiveApp": {
+    "playersAudit": {
+      "home": {
+        "title": "Players Audits",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Players Audit erstellen",
+        "createOrEditLabel": "Players Audit erstellen oder bearbeiten",
+        "notFound": "Keine Players Audits gefunden"
+      },
+      "created": "Players Audit erstellt mit ID {{ param }}",
+      "updated": "Players Audit aktualisiert mit ID {{ param }}",
+      "deleted": "Players Audit gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Players Audit {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Players Audit"
+      },
+      "eventDate": "Event Date",
+      "operation": "Operation",
+      "winningMoney": "Winning Money",
+      "transactionId": "Transaction Id",
+      "playerId": "Player Id",
+      "promotion": "Promotion",
+      "players": "Players",
+      "help": {
+        "eventDate": "The firstname attribute."
+      }
+    }
+  }
+}

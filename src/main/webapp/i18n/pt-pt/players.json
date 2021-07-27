@@ -1,0 +1,33 @@
+{
+  "rankInteractiveApp": {
+    "players": {
+      "home": {
+        "title": "Players",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Players",
+        "createOrEditLabel": "Criar ou editar Players",
+        "notFound": "Nenhum Players encontrado"
+      },
+      "created": "Um novo Players foi criado com o identificador {{ param }}",
+      "updated": "Players com identificador {{ param }} foi actualizado",
+      "deleted": "Players com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Players {{ id }}?"
+      },
+      "detail": {
+        "title": "Players"
+      },
+      "id": "ID",
+      "currentBalance": "Current Balance",
+      "wageringMoney": "Wagering Money",
+      "winningMoney": "Winning Money",
+      "username": "Username",
+      "email": "Email",
+      "contact": "Contact",
+      "playerId": "Player Id",
+      "help": {
+        "currentBalance": "The firstname attribute."
+      }
+    }
+  }
+}
