@@ -6,24 +6,24 @@ The project is for Rank Interactive Dagacube project for depositing, waging and 
 
 ### Database
 
-The project is purely based on an in-memery database H2.
+The project is purely based on an in-memory database H2.
 
 The Database consist of 2 tables, namely:
 
 1. Players - Which holds player information such as username, email, id .e.t.c
-2. PlayersAudit - Consists of all events/transactions on what transpired. It records all activities in the Players Tale.
+2. PlayersAudit - Consists of all events/transactions on what transpired. It records all activities in the Players Table.
 
-Both these tables can be accessed by running the project and logging in with Admin user, click on Administration, and the select database.
+Both these tables can be accessed by running the project and logging in with Admin user, click on Administration, and then select database.
 
 #### Liquibase
 
-The project uses Liquibase to log changes on the Database, and also can create tables automatically if they dont exist.
+The project uses Liquibase to log changes on the Database, and also can create tables automatically if they don't exist.
 
 ### Authentication and Authorization
 
 The project employs JWT authentication. The token can be retrieved by sending a registered username and password via /api/authenticate API.
 
-It also authorises certain functionalities based on Roles Defined.
+It also authorises certain functionality based on Roles Defined.
 
 ### API's
 
@@ -235,10 +235,6 @@ docker-compose -f src/main/docker/app.yml up -d
 ```
 
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
 [jhipster 7.0.1 archive]: https://www.jhipster.tech/documentation-archive/v7.0.1
