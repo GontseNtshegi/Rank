@@ -1,6 +1,43 @@
 # RankInteractive
 
-This application was generated using JHipster 7.0.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.0.1](https://www.jhipster.tech/documentation-archive/v7.0.1).
+## Project Details
+
+The project is for Rank Interactive Dagacube project for depositing, waging and viewing balances for players
+
+### Database
+
+The project is purely based on an in-memery database H2.
+
+The Database consist of 2 tables, namely:
+
+1. Players - Which holds player information such as username, email, id .e.t.c
+2. PlayersAudit - Consists of all events/transactions on what transpired. It records all activities in the Players Tale.
+
+Both these tables can be accessed by running the project and logging in with Admin user, click on Administration, and the select database.
+
+#### Liquibase
+
+The project uses Liquibase to log changes on the Database, and also can create tables automatically if they dont exist.
+
+### Authentication and Authorization
+
+The project employs JWT authentication. The token can be retrieved by sending a registered username and password via /api/authenticate API.
+
+It also authorises certain functionalities based on Roles Defined.
+
+### API's
+
+The Business logic APi's available are:
+
+```
+1. GET /api​/currentBalance​/{id}
+2. POST /api/deposit/money
+3. POST /api/wage/money
+4. GET /api/last10Wager/{id}
+5. GET /api/last10Win/{id}
+```
+
+Above API's and more are documented via Swagger when you log in with admin, navigate to the Administration Tab and select API
 
 ## Development
 
@@ -31,16 +68,6 @@ specifying a newer version in [package.json](package.json). You can also run `np
 Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
 
 The `npm run` command will list all of the scripts available to run for this project.
-
-### PWA Support
-
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
-
-The service worker initialization code is disabled by default. To enable it, uncomment the following code in `src/main/webapp/app/app.module.ts`:
-
-```typescript
-ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
-```
 
 ### Managing dependencies
 
@@ -93,7 +120,7 @@ update src/main/webapp/app/app.module.ts
 
 ### Doing API-First development using openapi-generator
 
-[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
+[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/openapi.yml` definition file by running:
 
 ```bash
 ./mvnw generate-sources
@@ -101,7 +128,7 @@ update src/main/webapp/app/app.module.ts
 
 Then implements the generated delegate classes with `@Service` classes.
 
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
+To edit the `openapi.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
 
 Refer to [Doing API-First development][] for more details.
 
