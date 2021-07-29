@@ -7,6 +7,7 @@ import com.rank.dagacube.service.PlayersService;
 import com.rank.dagacube.web.api.WageApiDelegate;
 import com.rank.dagacube.web.api.model.WageRequest;
 import com.rank.dagacube.web.api.model.WageResponse;
+import com.rank.dagacube.web.rest.errors.BadRequestAlertException;
 import com.rank.dagacube.web.rest.errors.PlayersException;
 import java.time.ZonedDateTime;
 import java.util.Optional;
@@ -43,7 +44,7 @@ public class WageResource implements WageApiDelegate {
                 .findOne(wageRequest.getPlayerId())
                 .ifPresent(
                     players -> {
-                        Long balance = players.getPromoLeft() != null
+                        Long balance = players.getPromoLeft() == null
                             ? players.getCurrentBalance() - wageRequest.getWage().longValue()
                             : players.getCurrentBalance();
                         if (balance < 0) throw new PlayersException("It is a teapot", Status.I_AM_A_TEAPOT); else {
@@ -54,11 +55,14 @@ public class WageResource implements WageApiDelegate {
 
                             players.setCurrentBalance(balance);
                             players.setWageringMoney(wageRequest.getWage().longValue());
-                            players.setPromoLeft(
-                                promo != null
-                                    ? (players.getPromoLeft() != null ? (players.getPromoLeft() - 1) : Constants.NEXT_PROMOTION)
-                                    : (players.getPromoLeft() == null ? null : (players.getPromoLeft() - 1))
-                            );
+                            if (players.getPromoLeft() != null) {
+                                players.setPromoLeft(
+                                    promo != null
+                                        ? (players.getPromoLeft() != null ? (players.getPromoLeft() - 1) : Constants.NEXT_PROMOTION)
+                                        : (players.getPromoLeft() - 1)
+                                );
+                            }
+
                             if (players.getPromoLeft() != null && players.getPromoLeft() == 0) players.setPromoLeft(null);
                             playersService.save(players);
 
