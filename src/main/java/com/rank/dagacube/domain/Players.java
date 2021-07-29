@@ -42,6 +42,9 @@ public class Players implements Serializable {
     @Column(name = "contact")
     private String contact;
 
+    @Column(name = "promo_left")
+    private Long promoLeft;
+
     /*@OneToMany(mappedBy = "players")
     @JsonIgnoreProperties(value = { "players" }, allowSetters = true)
     private Set<PlayersAudit> playerIds = new HashSet<>();*/
@@ -170,6 +173,18 @@ public class Players implements Serializable {
     }*/
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    public Long getPromoLeft() {
+        return promoLeft;
+    }
+
+    public void setPromoLeft(Long promoLeft) {
+        this.promoLeft = promoLeft;
+    }
+
+    public Players promoLeft(Long promoLeft) {
+        this.promoLeft = promoLeft;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -199,6 +214,7 @@ public class Players implements Serializable {
             ", username='" + getUsername() + "'" +
             ", email='" + getEmail() + "'" +
             ", contact='" + getContact() + "'" +
+            ", promoLeft='" + getPromoLeft() + "'" +
             "}";
     }
 }

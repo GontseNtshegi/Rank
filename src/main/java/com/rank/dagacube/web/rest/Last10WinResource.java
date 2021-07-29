@@ -35,7 +35,7 @@ public class Last10WinResource implements Last10WinApiDelegate {
                 .stream()
                 .forEach(
                     playersAudit -> {
-                        response.add(BigDecimal.valueOf(playersAudit.getWageringMoney()));
+                        response.add(BigDecimal.valueOf(playersAudit.getWinningMoney()));
                     }
                 );
         } else throw new PlayersException("Not Found", Status.NOT_FOUND);

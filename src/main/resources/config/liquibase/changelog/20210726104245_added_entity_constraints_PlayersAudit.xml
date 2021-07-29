@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity PlayersAudit.
     -->
-    <changeSet id="20210726104245-2" author="jhipster">
+    <changeSet id="20210726104245-2" author="Gontse">
 
         <addForeignKeyConstraint baseColumnNames="player_id"
                                  baseTableName="players_audit"

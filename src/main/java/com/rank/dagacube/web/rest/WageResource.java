@@ -43,18 +43,31 @@ public class WageResource implements WageApiDelegate {
                 .findOne(wageRequest.getPlayerId())
                 .ifPresent(
                     players -> {
-                        Long balance = players.getCurrentBalance() - wageRequest.getWage().longValue();
+                        Long balance = players.getPromoLeft() != null
+                            ? players.getCurrentBalance() - wageRequest.getWage().longValue()
+                            : players.getCurrentBalance();
                         if (balance < 0) throw new PlayersException("It is a teapot", Status.I_AM_A_TEAPOT); else {
+                            String promo = wageRequest.getPromotion() != null &&
+                                wageRequest.getPromotion().equalsIgnoreCase(Constants.PROMOTION)
+                                ? "Y"
+                                : null;
+
                             players.setCurrentBalance(balance);
                             players.setWageringMoney(wageRequest.getWage().longValue());
+                            players.setPromoLeft(
+                                promo != null
+                                    ? (players.getPromoLeft() != null ? (players.getPromoLeft() - 1) : Constants.NEXT_PROMOTION)
+                                    : (players.getPromoLeft() == null ? null : (players.getPromoLeft() - 1))
+                            );
+                            if (players.getPromoLeft() != null && players.getPromoLeft() == 0) players.setPromoLeft(null);
                             playersService.save(players);
 
                             //Audit the event
                             PlayersAudit playersAudit = new PlayersAudit()
                                 .eventDate(ZonedDateTime.now())
-                                .operation(Constants.DEPOSIT)
+                                .operation(Constants.WAGE)
                                 .playerId(wageRequest.getPlayerId())
-                                .promotion(null)
+                                .promotion(promo)
                                 .transactionId(wageRequest.getTransactionId())
                                 .wageringMoney(wageRequest.getWage().longValue());
 
@@ -67,7 +80,7 @@ public class WageResource implements WageApiDelegate {
                 );
         } else throw new PlayersException("Idempodent", Status.ALREADY_REPORTED);
 
-        if (wageResponse != null) throw new PlayersException("Player Nor Found", Status.NOT_FOUND);
+        if (wageResponse.getPlayerId() == null) throw new PlayersException("Player Nor Found", Status.NOT_FOUND);
 
         return new ResponseEntity<>(wageResponse, HttpStatus.OK);
     }

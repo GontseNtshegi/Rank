@@ -183,6 +183,9 @@ components:
             The amount of money to deduct.
           type: number
           format: currency
+        promotion:
+          description: If the player uses a promo code
+          type: string
       required:
         - playerId
         - transactionId

@@ -9,7 +9,7 @@
     <!--
         Added the entity Players.
     -->
-    <changeSet id="20210726104244-1" author="jhipster">
+    <changeSet id="20210726104244-1" author="Gontse">
         <createTable tableName="players">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -32,6 +32,9 @@
             <column name="contact" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="promo_left" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -46,7 +49,7 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20210726104244-1-data" author="jhipster" context="faker">
+    <changeSet id="20210726104244-1-data" author="Gontse" context="faker">
         <loadData
                   file="config/liquibase/fake-data/players.csv"
                   separator=";"

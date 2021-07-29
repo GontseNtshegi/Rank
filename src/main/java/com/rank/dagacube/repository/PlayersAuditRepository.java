@@ -14,4 +14,6 @@ public interface PlayersAuditRepository extends JpaRepository<PlayersAudit, Stri
     List<PlayersAudit> findTop10ByPlayerIdAndWinningMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long winningMoney);
 
     List<PlayersAudit> findTop10ByPlayerIdAndWageringMoneyGreaterThanOrderByEventDateDesc(Long playerId, Long wageringMoney);
+
+    List<PlayersAudit> findByPlayerIdAndPromotion(Long playerId, String promotion);
 }

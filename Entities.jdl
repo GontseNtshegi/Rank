@@ -8,7 +8,8 @@ entity Players {
 	WinningMoney Long,
     Username String,
     Email String,
-    Contact String
+    Contact String,
+    PromoLeft Long
 }
 entity PlayersAudit {
 	/**

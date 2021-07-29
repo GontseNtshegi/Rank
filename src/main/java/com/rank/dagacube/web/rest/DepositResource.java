@@ -62,7 +62,7 @@ public class DepositResource implements DepositApiDelegate {
                 );
         } else throw new PlayersException("Idempodent", Status.ALREADY_REPORTED);
 
-        if (depositResponse != null) throw new PlayersException("Player Nor Found", Status.NOT_FOUND);
+        if (depositResponse.getPlayerId() == null) throw new PlayersException("Player Nor Found", Status.NOT_FOUND);
 
         return new ResponseEntity<>(depositResponse, HttpStatus.OK);
     }

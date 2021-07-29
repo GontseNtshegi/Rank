@@ -13,6 +13,8 @@ public final class Constants {
     public static final String DEPOSIT = "Deposit";
     public static final String WAGE = "Wage";
     public static final String VIEW_BALANCE = "View Balance";
+    public static final String PROMOTION = "paper";
+    public static final Long NEXT_PROMOTION = 5L;
 
     private Constants() {}
 }
